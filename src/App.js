@@ -8,7 +8,7 @@ function App() {
   //=========================
 
   //endpoint of baseball-app API server
-  const endpoint = "http://localhost:8081/players";
+  const endpoint = "http://3.22.123.152:80/players";
 
   const [allPlayers, setAllPlayers] = useState([]);
   const [selectedPlayer, setSelectedPlayer] = useState("");
@@ -271,7 +271,7 @@ function App() {
           </label>
           <br />
           <label className="formTwo" title="The player's city, up to 20 characters">
-            <span>Player City ID</span><br />
+            <span>Player City</span><br />
             <input id="city" type="text" name="city" maxLength="20" required value={selectedInfo.city} onChange={(event) => handleChange(event)} />
           </label>
           <br />
