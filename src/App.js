@@ -7,10 +7,9 @@ function App() {
   //STATE AND OTHER VARIABLES
   //=========================
 
-
   //endpoint of baseball-app API server
-  // const endpoint = "http:///localhost:8080/players";
   const endpoint = "http://3.22.123.152:80/players";
+  //const endpoint = "http:///localhost:8080/players";
 
   const [allPlayers, setAllPlayers] = useState([]);
   const [selectedPlayer, setSelectedPlayer] = useState("");
@@ -255,9 +254,9 @@ function App() {
         <form className="firstForm">
           <label>
             <span id="firstFormTitle">Select a Player</span><br />
-              <span id="firstFormText">
+            <span id="firstFormText">
               Please select a baseball player to modify them in the database. You may create a new player or update/delete an existing player.
-              </span>
+            </span>
           </label><br />
           <select id="firstFormSelect" disabled={creationState} name="player_select" value={selectedPlayer} onChange={(event) => handleFormOneSubmit(event)}>
             {allPlayers.map((player, i) =>
@@ -308,18 +307,12 @@ function App() {
           {creationState && <input className="formTwoLeftButtons" type="button" id="submit" name="submit_create" value="Create" onClick={(event) => handleFormTwoSubmit(event)} />}
 
         </form>
-
-
-
-
       </div>
-
       <div id="disclaimer">
         This Baseball Player Management System is a CRUD application created and developed by <a href="https://www.linkedin.com/in/kurtis-miles-2271621a0/" target="new" title="Kurtis Miles">Kurtis Miles</a>. It is a full stack project built with MySQL, Express.js, Node.js, and React.js. All backend resources are built and hosted on the AWS Cloud.
-        This includes an S3 bucket to serve static web content like this <a href="https://github.com/kurtismiles/Baseball_React_App" target="new" title="Github Link">React Frontend</a>, 
-        an EC2 instance housing the <a href="https://github.com/kurtismiles/Baseball_API_Server" target="new" title="Github Link">RESTful API Server</a>, and an RDS database instance that contains the MySQL database in use by this application.     
+        This includes an S3 bucket to serve static web content like this <a href="https://github.com/kurtismiles/Baseball_React_App" target="new" title="Github Link">React Frontend</a>,
+        an EC2 instance housing the <a href="https://github.com/kurtismiles/Baseball_API_Server" target="new" title="Github Link">RESTful API Server</a>, and an RDS database instance that contains the MySQL database in use by this application.
       </div>
-
     </div>
   );
 }
