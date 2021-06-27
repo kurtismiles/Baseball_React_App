@@ -7,7 +7,9 @@ function App() {
   //STATE AND OTHER VARIABLES
   //=========================
 
+
   //endpoint of baseball-app API server
+  // const endpoint = "http:///localhost:8080/players";
   const endpoint = "http://3.22.123.152:80/players";
 
   const [allPlayers, setAllPlayers] = useState([]);
@@ -245,17 +247,19 @@ function App() {
   return (
     <div className="App">
 
-      <h1>Baseball Application - Kurtis Miles </h1>
+      <h1>Player Management System</h1>
 
       <div className="totalForm">
 
         {/* FORM ONE */}
         <form className="firstForm">
           <label>
-            <span id="firstFormTitle">Select a player.</span><br /><span id="firstFormText">
-              Select a player from the database to modify their data. There are some input limitations, so please mouseover each field to view these (ex. player weight cannot be over 1000 lbs).</span>
+            <span id="firstFormTitle">Select a Player</span><br />
+              <span id="firstFormText">
+              Please select a baseball player to modify them in the database. You may create a new player or update/delete an existing player.
+              </span>
           </label><br />
-          <select disabled={creationState} name="player_select" value={selectedPlayer} onChange={(event) => handleFormOneSubmit(event)}>
+          <select id="firstFormSelect" disabled={creationState} name="player_select" value={selectedPlayer} onChange={(event) => handleFormOneSubmit(event)}>
             {allPlayers.map((player, i) =>
               <option key={i} value={player.name}> {player.name} </option>
             )}
@@ -266,33 +270,33 @@ function App() {
         {/* FORM TWO */}
         <form className="secondForm" action="index.php" method="post">
           <label className="formTwo" title="The player's name, up to 20 characters">
-            <span>Player Name</span><br />
-            <input id="name" type="text" name="name" maxLength="20" required value={selectedInfo.name} onChange={(event) => handleChange(event)} />
+            <span>Player Name<span id="hints"> The players full name </span></span><br />
+            <input className="playerInput" id="name" type="text" name="name" maxLength="20" required value={selectedInfo.name} onChange={(event) => handleChange(event)} />
           </label>
           <br />
           <label className="formTwo" title="The player's city, up to 20 characters">
-            <span>Player City</span><br />
-            <input id="city" type="text" name="city" maxLength="20" required value={selectedInfo.city} onChange={(event) => handleChange(event)} />
+            <span>Player City<span id="hints"> The player`s city of birth </span></span><br />
+            <input className="playerInput" id="city" type="text" name="city" maxLength="20" required value={selectedInfo.city} onChange={(event) => handleChange(event)} />
           </label>
           <br />
           <label className="formTwo" title="The player's height from 1 to 108 inches">
-            <span>Player Height</span><br />
-            <input id="height" type="text" name="height" maxLength="3" required value={selectedInfo.height} onChange={(event) => handleChange(event)} />
+            <span>Player Height<span id="hints"> Height up to 108 inches </span></span><br />
+            <input className="playerInput" id="height" type="text" name="height" maxLength="3" required value={selectedInfo.height} onChange={(event) => handleChange(event)} />
           </label>
           <br />
           <label className="formTwo" title="The player's weight 1 to 1000 lbs">
-            <span>Player Weight</span><br />
-            <input id="weight" type="text" name="weight" maxLength="3" required value={selectedInfo.weight} onChange={(event) => handleChange(event)} />
+            <span>Player Weight<span id="hints"> Weight up to 1000 lbs</span></span><br />
+            <input className="playerInput" id="weight" type="text" name="weight" maxLength="3" required value={selectedInfo.weight} onChange={(event) => handleChange(event)} />
           </label>
           <br />
           <label className="formTwo" title="The player's batting stance as the letter R or L">
-            <span>Player Batting Stance</span><br />
-            <input id="bats" type="text" name="bats" maxLength="1" required value={selectedInfo.bats} onChange={(event) => handleChange(event)} />
+            <span>Batting Stance<span id="hints"> The letter R or L</span></span><br />
+            <input className="playerInput" id="bats" type="text" name="bats" maxLength="1" required value={selectedInfo.bats} onChange={(event) => handleChange(event)} />
           </label>
           <br />
           <label className="formTwo" title="The player's throwing stance as the letter R or L">
-            <span>Player Throwing Stance</span><br />
-            <input id="throws" type="text" name="throws" maxLength="1" required value={selectedInfo.throws} onChange={(event) => handleChange(event)} />
+            <span>Throwing Stance<span id="hints"> The letter R or L </span></span><br />
+            <input className="playerInput" id="throws" type="text" name="throws" maxLength="1" required value={selectedInfo.throws} onChange={(event) => handleChange(event)} />
           </label>
           <br />
 
@@ -304,7 +308,18 @@ function App() {
           {creationState && <input className="formTwoLeftButtons" type="button" id="submit" name="submit_create" value="Create" onClick={(event) => handleFormTwoSubmit(event)} />}
 
         </form>
+
+
+
+
       </div>
+
+      <div id="disclaimer">
+        This Baseball Player Management System is a CRUD application created and developed by <a href="https://www.linkedin.com/in/kurtis-miles-2271621a0/" target="new" title="Kurtis Miles">Kurtis Miles</a>. It is a full stack project built with MySQL, Express.js, Node.js, and React.js. All backend resources are built and hosted on the AWS Cloud.
+        This includes an S3 bucket to serve static web content like this <a href="https://github.com/kurtismiles/Baseball_React_App" target="new" title="Github Link">React Frontend</a>, 
+        an EC2 instance housing the <a href="https://github.com/kurtismiles/Baseball_API_Server" target="new" title="Github Link">RESTful API Server</a>, and an RDS database instance that contains the MySQL database in use by this application.     
+      </div>
+
     </div>
   );
 }

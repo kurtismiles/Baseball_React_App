@@ -9,10 +9,48 @@ h1
 	margin: auto;
 }
 
-input
+.totalForm
 {
-	margin-top: 3px;
+	border-style: groove;
+	width: 25%;
+	margin: auto;
+	overflow: auto;
+}
+
+.firstForm
+{
+	font-size: 16px;
+	padding: 10px;
+	border-style: none none groove none;
+}
+
+.secondForm
+{
+	font-size: 16px;
+	padding: 0px 7px 7px 7px;
+}
+
+
+.formTwoRightButtons
+{
+	float: right;
+	margin-left: 8px;
 	margin-bottom: 10px;
+}
+
+.formTwoLeftButtons
+{
+	float: left;
+	margin-right: 3px;
+	margin-bottom: 10px;
+}
+
+input.playerInput    
+{
+	height: 25px;
+	width: 50%;
+	display:block;
+	border: 1px solid #999;
 }
 
 label.formTwo
@@ -30,40 +68,36 @@ label.formTwo
 	font-size: .8rem;
 }
 
-.totalForm
+#firstFormSelect 
 {
-	border-style: groove;
+	margin-top: 5px;
+}
+
+#disclaimer {
+	font-size: .9em; 
+	color:#ACACAC; 
+	font-family:Arial; 
+	margin: 10px auto 30px auto;
 	width: 25%;
-	margin: auto;
-	overflow: auto;
+	line-height: 1.3em;
+	text-align: justify;
 }
 
-.firstForm
-{
-	padding: 7px;
-	border-style: none none groove none;
-}
-
-.secondForm
-{
-	padding: 0px 7px 7px 7px;
-}
-
-.formTwoRightButtons
-{
-	float: right;
-	margin-left: 3px;
-}
-
-.formTwoLeftButtons
-{
-	float: left;
-	margin-right: 3px;
+#hints {
+	margin-left: 4px;
+	font-size: 10px;
+	color:#646262;
 }
 
 @media only screen and (max-width: 1400px) {
   .totalForm {
     width: 35%;
+  }
+  #disclaimer {
+	width: 35%;
+  }
+  input.playerInput {
+	width: 60%	  
   }
 }
 
@@ -71,10 +105,22 @@ label.formTwo
   .totalForm {
     width: 50%;
   }
+  #disclaimer {
+	width: 50%;
+  }
+  input.playerInput {
+	width: 75%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
   .totalForm {
     width: 75%;
+  }
+  #disclaimer {
+	width: 75%;
+  }
+  input.playerInput {
+	width: 90%;  
   }
 }
